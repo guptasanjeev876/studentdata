@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Student data</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'student/css/bootstrap.css' %}">
+ 
+  
+</head>
+<body>
+  <div class='container mt-3'>
+    <h1> Student form data succesfully submitted</h1>
+    <div class="col-sm-8 offset-1" >
+      <h3 class="text-center alert alert-info">Show Student Informations</h3> 
+      {% if word%}
+          <table class="table table-hover">
+              <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scpoe="col">Name</th>
+                      <th scpoe="col">Email</th>
+                      <th scpoe="col">TEXTAREA</th>
+                  </tr>
+
+              </thead>
+              <tbody>
+                  {% for stu in word %}
+                  <tr>
+                      <th scope="row"> {{stu.id}}</th>
+                      <td>{{stu.name}}</td>
+                      <td>{{stu.email}}</td>
+                      <td>{{stu.textarea}}</td>
+                      
+                  </tr>
+                  
+                  {% endfor %}
+              </tbody>
+          </table>
+          {% else %}
+          <h4 class="text-center alert alert-warning">No data </h4>
+      {% endif %}
+     <a href="{% url 'home' %}" class="btn btn-success">Back to Home</a>
+  </table>
+   
+
+      
+  </div>
+    <script src="{% static 'student/js/bootstrap.js' %}"> </script>
+    <script src="{% static 'student/js/jquery.js' %}"> </script>
+    <script src="{% static 'student/js/popper.js' %}"> </script>
+</body>
+</html>
+
+ 
